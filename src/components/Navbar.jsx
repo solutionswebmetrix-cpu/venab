@@ -37,7 +37,7 @@ const Navbar = () => {
               <span className="text-white font-bold text-xl">V</span>
             </div>
             <span className="text-2xl font-black text-white tracking-tight">
-              Venab<span className="text-primary">Water</span>
+              Venab
             </span>
           </div>
 
