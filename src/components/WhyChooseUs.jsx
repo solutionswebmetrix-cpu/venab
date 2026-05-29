@@ -2,57 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   FiCheckCircle,
-  FiShield,
-  FiClock,
   FiAward,
-  FiUsers,
-  FiThumbsUp,
 } from 'react-icons/fi';
+import { whyChooseUsData } from '../data/servicesData';
 
 const WhyChooseUs = () => {
-  const features = [
-    {
-      icon: FiShield,
-      title: '10 Year Warranty',
-      description: 'Complete peace of mind with our luxury warranty coverage.',
-    },
-    {
-      icon: FiCheckCircle,
-      title: 'Premium Materials',
-      description: 'Only the finest materials for discerning clients.',
-    },
-    {
-      icon: FiUsers,
-      title: 'Expert Team',
-      description: 'Highly skilled and certified waterproofing specialists.',
-    },
-    {
-      icon: FiClock,
-      title: '24/7 Emergency Service',
-      description: 'Always available when you need us the most.',
-    },
-    {
-      icon: FiAward,
-      title: '5-Star Rated',
-      description: 'Trusted by hundreds of satisfied clients.',
-    },
-    {
-      icon: FiThumbsUp,
-      title: '100% Satisfaction',
-      description: 'Guaranteed results or we fix it for free.',
-    },
-  ];
-
-  const benefits = [
-    'Free site inspection',
-    'Guaranteed waterproofing',
-    'Competitive pricing',
-    'Quick response',
-    'Professional staff',
-    'Latest technology',
-    'Eco-friendly',
-    'Licensed & insured',
-  ];
+  const features = whyChooseUsData.slice(0, 6);
+  const benefits = whyChooseUsData.slice(6);
 
   return (
     <section className="py-24 bg-white">
@@ -72,7 +28,7 @@ const WhyChooseUs = () => {
               <span className="block text-accent">Excellence</span>
             </h2>
             <p className="text-lg md:text-xl text-textSecondary mb-10 leading-relaxed">
-              Experience luxury waterproofing with unmatched quality, attention to detail, and a commitment to perfection.
+              Water damage can compromise the strength, safety, and value of your property. At Venab Waterproofing, we provide comprehensive waterproofing and protection solutions designed to safeguard your investment for years to come.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-6">
@@ -87,13 +43,13 @@ const WhyChooseUs = () => {
                   className="p-6 rounded-2xl bg-bg border border-gray-100 hover:border-accent/30 transition-all duration-500"
                 >
                   <div className="w-14 h-14 rounded-xl bg-gradient-gold flex items-center justify-center mb-4 shadow-card">
-                    <feature.icon size={26} className="text-white" />
+                    <FiAward size={26} className="text-white" />
                   </div>
                   <h3 className="text-xl font-black text-primary mb-3">
                     {feature.title}
                   </h3>
                   <p className="text-textSecondary leading-relaxed">
-                    {feature.description}
+                    {feature.desc}
                   </p>
                 </motion.div>
               ))}
@@ -120,19 +76,24 @@ const WhyChooseUs = () => {
               <div className="space-y-4 mb-10">
                 {benefits.map((benefit, index) => (
                   <motion.div
-                    key={benefit}
+                    key={benefit.title}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
-                    className="flex items-center gap-4"
+                    className="flex items-start gap-4"
                   >
-                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1">
                       <FiCheckCircle size={18} className="text-accent" />
                     </div>
-                    <span className="text-gray-200 text-lg font-medium">
-                      {benefit}
-                    </span>
+                    <div>
+                      <h4 className="text-white text-lg font-bold">
+                        {benefit.title}
+                      </h4>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {benefit.desc}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </div>

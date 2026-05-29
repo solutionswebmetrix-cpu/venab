@@ -47,11 +47,6 @@ const Contact = () => {
       title: 'Location',
       value: 'Bhulanpur PAC, Lohta Bazar, Churamanpur, Uttar Pradesh',
     },
-    {
-      icon: FiClock,
-      title: 'Availability',
-      value: 'Open 24 Hours',
-    },
   ];
 
   return (

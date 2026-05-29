@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   FiFacebook,
   FiInstagram,
@@ -7,21 +8,15 @@ import {
   FiPhone,
   FiMail,
 } from 'react-icons/fi';
+import { servicesData } from '../data/servicesData';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const services = [
-    'Roof Waterproofing',
-    'Basement Waterproofing',
-    'Terrace Waterproofing',
-    'Bathroom Waterproofing',
-    'Crack Filling',
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -34,7 +29,7 @@ const Footer = () => {
                 <span className="text-white font-black text-2xl">V</span>
               </div>
               <span className="text-3xl font-black text-white tracking-tight">
-                Venab<span className="text-accent">Waterproofing</span>
+                Venab
               </span>
             </div>
             <p className="text-gray-400 text-lg leading-relaxed mb-8">
@@ -58,12 +53,12 @@ const Footer = () => {
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-lg text-gray-400 hover:text-accent transition-colors duration-300 font-semibold"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -72,14 +67,14 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-black text-white mb-8">Our Services</h3>
             <ul className="space-y-4">
-              {services.map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
+              {servicesData.slice(0, 5).map((service) => (
+                <li key={service.id}>
+                  <Link
+                    to={`/services/${service.id}`}
                     className="text-lg text-gray-400 hover:text-accent transition-colors duration-300 font-semibold"
                   >
-                    {service}
-                  </a>
+                    {service.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -113,9 +108,6 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-16 pt-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-base font-semibold">
             © 2024 Venab Waterproofing. All rights reserved.
-          </p>
-          <p className="text-gray-400 text-base font-semibold">
-            Open 24 Hours • 5.0 ⭐ Google Rating
           </p>
         </div>
       </div>

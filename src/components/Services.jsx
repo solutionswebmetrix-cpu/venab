@@ -1,57 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  FiDroplet,
-  FiShield,
-  FiHome,
-  FiCheck,
-  FiStar,
-} from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { servicesData } from '../data/servicesData';
 
 const Services = () => {
-  const services = [
-    {
-      icon: FiDroplet,
-      title: 'Roof Waterproofing',
-      description: 'Premium roof protection with luxury materials and craftsmanship.',
-    },
-    {
-      icon: FiShield,
-      title: 'Basement Waterproofing',
-      description: 'Keep your basement dry and protected with our expert solutions.',
-    },
-    {
-      icon: FiHome,
-      title: 'Terrace Waterproofing',
-      description: 'Elegant terrace solutions for long-lasting water protection.',
-    },
-    {
-      icon: FiCheck,
-      title: 'Bathroom Waterproofing',
-      description: 'Luxury bathroom waterproofing for premium properties.',
-    },
-    {
-      icon: FiStar,
-      title: 'Crack Filling',
-      description: 'Professional crack sealing to protect your valuable property.',
-    },
-    {
-      icon: FiShield,
-      title: 'Chemical Treatment',
-      description: 'Advanced chemical treatments for maximum waterproofing.',
-    },
-    {
-      icon: FiDroplet,
-      title: 'Heat Insulation',
-      description: 'Premium thermal insulation for energy efficiency.',
-    },
-    {
-      icon: FiCheck,
-      title: 'Swimming Pool',
-      description: 'Luxury waterproofing for pools and water features.',
-    },
-  ];
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -94,31 +46,36 @@ const Services = () => {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              variants={itemVariants}
-              whileHover={{
-                y: -12,
-                boxShadow: '0 20px 60px -20px rgba(245,158,11,0.25)',
-              }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="group rounded-2xl bg-white p-8 border border-gray-100 shadow-card hover:border-accent/30 transition-all duration-500"
+          {servicesData.map((service, index) => (
+            <Link 
+              key={service.id}
+              to={`/services/${service.id}`}
+              className="block"
             >
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                transition={{ duration: 0.3 }}
-                className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center mb-6 shadow-card group-hover:shadow-card-hover transition-all duration-300"
+                variants={itemVariants}
+                whileHover={{
+                  y: -12,
+                  boxShadow: '0 20px 60px -20px rgba(245,158,11,0.25)',
+                }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="group rounded-2xl bg-white p-8 border border-gray-100 shadow-card hover:border-accent/30 transition-all duration-500 cursor-pointer h-full"
               >
-                <service.icon size={32} className="text-white" />
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center mb-6 shadow-card group-hover:shadow-card-hover transition-all duration-300"
+                >
+                  <service.icon size={32} className="text-white" />
+                </motion.div>
+                <h3 className="text-xl font-black text-primary mb-3 group-hover:text-accent transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-textSecondary leading-relaxed">
+                  {service.shortIntro}
+                </p>
               </motion.div>
-              <h3 className="text-xl font-black text-primary mb-3 group-hover:text-accent transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-textSecondary leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>

@@ -7,7 +7,6 @@ const Hero = () => {
     { number: '10+', label: 'Years Experience' },
     { number: '500+', label: 'Projects Completed' },
     { number: '5.0', label: 'Google Rating' },
-    { number: '24/7', label: 'Available' },
   ];
 
   return (

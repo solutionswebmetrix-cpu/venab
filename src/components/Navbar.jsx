@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiPhone } from 'react-icons/fi';
 
 const Navbar = () => {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -11,14 +13,16 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = ['home', 'services', 'projects', 'testimonials', 'contact'];
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section);
-            break;
+      if (location.pathname === '/') {
+        const sections = ['home', 'services', 'projects', 'testimonials', 'contact'];
+        for (const section of sections) {
+          const el = document.getElementById(section);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
@@ -26,22 +30,25 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Testimonials', href: '/#testimonials' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   const handleLinkClick = (href) => {
     setIsOpen(false);
-    const targetId = href.slice(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (href.startsWith('/#') && location.pathname === '/') {
+      const targetId = href.slice(2);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -55,24 +62,26 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
         <div className="flex items-center justify-between h-24">
-          <div 
-            className="flex items-center gap-3 cursor-pointer"
-            onClick={() => handleLinkClick('#home')}
+          <Link 
+            to="/"
+            className="flex items-center gap-3"
           >
             <div className="w-12 h-12 rounded-2xl bg-gradient-gold flex items-center justify-center">
               <span className="text-white font-black text-2xl">V</span>
             </div>
             <span className="text-3xl font-black tracking-tight text-primary">
-              Venab<span className="text-accent">Waterproofing</span>
+              Venab
             </span>
-          </div>
+          </Link>
 
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.slice(1);
+              const isActive = (link.href === '/' && location.pathname === '/') ||
+                             (link.href.startsWith('/#') && activeSection === link.href.slice(2) && location.pathname === '/');
               return (
-                <button
+                <Link
                   key={link.name}
+                  to={link.href}
                   onClick={() => handleLinkClick(link.href)}
                   className={`transition-all duration-300 relative group font-semibold text-lg ${
                     isActive 
@@ -84,7 +93,7 @@ const Navbar = () => {
                   <span className={`absolute -bottom-2 left-0 h-0.5 bg-accent rounded-full transition-all duration-500 ${
                     isActive ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}></span>
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -119,17 +128,19 @@ const Navbar = () => {
           >
             <div className="px-6 py-8 space-y-6">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.slice(1);
+                const isActive = (link.href === '/' && location.pathname === '/') ||
+                               (link.href.startsWith('/#') && activeSection === link.href.slice(2) && location.pathname === '/');
                 return (
-                  <button
+                  <Link
                     key={link.name}
+                    to={link.href}
                     onClick={() => handleLinkClick(link.href)}
                     className={`block text-xl w-full text-left transition-colors duration-300 font-semibold ${
                       isActive ? 'text-accent' : 'text-primary hover:text-accent'
                     }`}
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 );
               })}
               <a
