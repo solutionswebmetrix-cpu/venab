@@ -1,11 +1,16 @@
 import { FiDroplet, FiShield, FiHome, FiCheck, FiStar, FiThermometer } from 'react-icons/fi';
+import roofImage from '../assets/banner/Roof Waterproofing.png';
+import basementImage from '../assets/banner/Basement Waterproofing.png';
+import terraceImage from '../assets/banner/Terrace Waterproofing.png';
+import concreteRepairImage from '../assets/banner/Concrete repair.png';
+import chemicalTreatmentImage from '../assets/banner/Chemical Waterproofing Treatment.png';
 
 export const servicesData = [
   {
     id: 'roof-waterproofing',
     title: 'Roof Waterproofing',
     icon: FiDroplet,
-    heroImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop',
+    heroImage: roofImage,
     shortIntro: 'Protect your roof from water leakage, cracks, seepage, and weather damage with our advanced roof waterproofing solutions.',
     description: 'Protect your roof from water leakage, cracks, seepage, and weather damage with our advanced roof waterproofing solutions. At Venab Waterproofing, we use premium waterproof coatings, membranes, and treatment systems that create a durable protective barrier against rainwater, moisture, and harsh environmental conditions. Our expert solutions help extend the lifespan of your roof, prevent structural deterioration, and significantly reduce future maintenance costs. Whether it\'s a residential, commercial, or industrial property, we ensure complete roof protection with long-lasting results.',
     benefits: [
@@ -43,7 +48,7 @@ export const servicesData = [
     id: 'basement-waterproofing',
     title: 'Basement Waterproofing',
     icon: FiShield,
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop',
+    heroImage: basementImage,
     shortIntro: 'Prevent groundwater intrusion, moisture buildup, mold growth, and water damage with our basement waterproofing solutions.',
     description: 'Water seepage in basements can weaken foundations, cause dampness, and lead to serious structural issues. Our basement waterproofing solutions are specifically designed to prevent groundwater intrusion, moisture buildup, mold growth, and water damage. Using advanced waterproofing technologies and professional application techniques, we create a strong moisture-resistant barrier that keeps your basement dry, safe, and structurally sound. Our solutions help protect your property\'s foundation and improve indoor air quality.',
     benefits: [
@@ -81,7 +86,7 @@ export const servicesData = [
     id: 'terrace-waterproofing',
     title: 'Terrace Waterproofing',
     icon: FiHome,
-    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c856dfd?w=1920&h=1080&fit=crop',
+    heroImage: terraceImage,
     shortIntro: 'Complete protection against water seepage, surface cracks, and structural deterioration for your terrace.',
     description: 'Terraces remain exposed to sunlight, rain, temperature fluctuations, and environmental wear throughout the year. Our terrace waterproofing services provide complete protection against water seepage, surface cracks, and structural deterioration. We apply high-performance waterproof membranes and premium coatings that ensure long-lasting protection, durability, and resistance against harsh weather conditions. Our terrace waterproofing solutions help maintain the structural integrity and appearance of your property for years to come.',
     benefits: [
@@ -157,7 +162,7 @@ export const servicesData = [
     id: 'crack-filling',
     title: 'Crack Filling & Repair',
     icon: FiStar,
-    heroImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop',
+    heroImage: concreteRepairImage,
     shortIntro: 'Address all types of cracks using advanced repair materials and proven restoration techniques.',
     description: 'Structural and surface cracks can allow water penetration and lead to serious building damage if left untreated. Our crack filling and repair services address all types of cracks using advanced repair materials and proven restoration techniques. We identify the root cause of cracking, repair the affected area, and strengthen the structure to prevent future damage. Our solutions restore structural integrity, improve durability, and provide long-lasting protection against water infiltration.',
     benefits: [
@@ -195,7 +200,7 @@ export const servicesData = [
     id: 'chemical-treatment',
     title: 'Chemical Waterproofing Treatment',
     icon: FiShield,
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop',
+    heroImage: chemicalTreatmentImage,
     shortIntro: 'Advanced waterproof compounds and protective coatings engineered for powerful barrier against water.',
     description: 'Our chemical waterproofing treatments utilize advanced waterproof compounds and protective coatings engineered to create a powerful barrier against water infiltration. Suitable for roofs, terraces, walls, basements, concrete surfaces, and water-retaining structures, these treatments offer superior protection and durability. By penetrating deep into surfaces and strengthening their resistance to moisture, our chemical waterproofing solutions provide long-term performance and reliable protection in challenging environmental conditions.',
     benefits: [

@@ -461,14 +461,14 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 }}
-                  className="relative"
+                  className="relative h-full"
                 >
-                  <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 text-center">
+                  <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 text-center h-full flex flex-col">
                     <div className="w-20 h-20 rounded-full bg-gradient-gold flex items-center justify-center mx-auto mb-6 shadow-card animate-pulse-glow">
                       <span className="text-white font-black text-3xl">{step.step}</span>
                     </div>
                     <h3 className="text-xl font-black text-primary mb-4">{step.title}</h3>
-                    <p className="text-textSecondary leading-relaxed">{step.description}</p>
+                    <p className="text-textSecondary leading-relaxed flex-grow">{step.description}</p>
                   </div>
 
                   {index < process.length - 1 && (
