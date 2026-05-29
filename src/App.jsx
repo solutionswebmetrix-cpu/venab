@@ -12,7 +12,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-bg">
       <Navbar />
       <Hero />
       <Services />

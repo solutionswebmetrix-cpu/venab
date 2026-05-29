@@ -11,99 +11,106 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24">
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop"
+          alt="Professional waterproofing"
           className="w-full h-full object-cover"
-        >
-          <source src="/Banner.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/60" />
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/85 to-primary/90"></div>
+        <div className="absolute top-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-goldLight/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
-          <div className="max-w-3xl">
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-white"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent/20 border border-accent/30 rounded-full mb-8"
             >
-              Protect Your Home <br />
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
-                From Water Damage
-              </span>
+              <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+              <span className="text-accent font-bold text-sm uppercase tracking-wider">Trusted Waterproofing Experts</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6"
+            >
+              Protect Your Home with
+              <br />
+              <span className="text-accent">Premium Waterproofing</span>
             </motion.h1>
 
-            {/* Paragraph */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 text-lg md:text-2xl leading-relaxed text-slate-300 max-w-2xl"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed"
             >
-              Professional Waterproofing Solutions with Guaranteed Protection. 24/7 emergency service available.
+              Luxury waterproofing solutions tailored for discerning residential and commercial clients. Guaranteed protection, 24/7 emergency service available.
             </motion.p>
 
-            {/* Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-5 mt-10"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-5 mb-16"
             >
               <motion.a
                 href="#contact"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(34, 211, 238, 0.5)' }}
+                whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(245,158,11,0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-xl transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 rounded-full px-10 py-5 bg-gradient-gold text-white font-black text-lg shadow-card hover:shadow-card-hover transition-all duration-300"
               >
-                <FiCalendar />
+                <FiCalendar size={22} />
                 Get Free Inspection
               </motion.a>
               <motion.a
                 href="tel:+919415598626"
-                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.1)' }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 text-white font-semibold transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 rounded-full px-10 py-5 bg-transparent border-2 border-accent text-accent font-black text-lg hover:bg-accent hover:text-white transition-all duration-300"
               >
-                <FiPhone />
+                <FiPhone size={22} />
                 Call Now
               </motion.a>
             </motion.div>
 
-            {/* Stats */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl"
             >
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1, type: 'spring' }}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="text-left"
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1, type: 'spring' }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center"
                 >
-                  <div className="text-3xl md:text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+                  <div className="text-4xl md:text-5xl font-black text-accent mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-slate-400 mt-2">{stat.label}</div>
+                  <div className="text-sm md:text-base text-gray-300 font-medium">
+                    {stat.label}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

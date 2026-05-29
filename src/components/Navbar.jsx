@@ -5,12 +5,26 @@ import { FiMenu, FiX, FiPhone } from 'react-icons/fi';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      const sections = ['home', 'services', 'projects', 'testimonials', 'contact'];
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -22,53 +36,74 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleLinkClick = (href) => {
+    setIsOpen(false);
+    const targetId = href.slice(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-dark/90 backdrop-blur-xl border-b border-white/10' 
+          ? 'bg-white shadow-card border-b border-gray-100' 
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">V</span>
+        <div className="flex items-center justify-between h-24">
+          <div 
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => handleLinkClick('#home')}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-gradient-gold flex items-center justify-center">
+              <span className="text-white font-black text-2xl">V</span>
             </div>
-            <span className="text-2xl font-black text-white tracking-tight">
-              Venab
+            <span className="text-3xl font-black tracking-tight text-primary">
+              Venab<span className="text-accent">Waterproofing</span>
             </span>
           </div>
 
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-300 hover:text-white transition-colors duration-300 relative group"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
-              </a>
-            ))}
+          <div className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1);
+              return (
+                <button
+                  key={link.name}
+                  onClick={() => handleLinkClick(link.href)}
+                  className={`transition-all duration-300 relative group font-semibold text-lg ${
+                    isActive 
+                      ? 'text-accent' 
+                      : 'text-primary hover:text-accent'
+                  }`}
+                >
+                  {link.name}
+                  <span className={`absolute -bottom-2 left-0 h-0.5 bg-accent rounded-full transition-all duration-500 ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}></span>
+                </button>
+              );
+            })}
           </div>
 
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:+919415598626"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-xl hover:scale-105 transition-all duration-300 animate-pulse-glow"
+              className="inline-flex items-center gap-3 rounded-full px-8 py-4 bg-gradient-gold text-white font-bold shadow-card hover:shadow-card-hover hover:scale-105 transition-all duration-300 animate-pulse-glow"
             >
-              <FiPhone />
+              <FiPhone size={20} />
               Call Now
             </a>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-primary p-2"
           >
-            {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+            {isOpen ? <FiX size={32} /> : <FiMenu size={32} />}
           </button>
         </div>
       </div>
@@ -79,24 +114,29 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark border-t border-white/10"
+            transition={{ duration: 0.3, type: 'spring' }}
+            className="md:hidden bg-white border-t border-gray-100 shadow-card"
           >
-            <div className="px-6 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-lg text-slate-300 hover:text-white transition-colors duration-300"
-                >
-                  {link.name}
-                </a>
-              ))}
+            <div className="px-6 py-8 space-y-6">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.slice(1);
+                return (
+                  <button
+                    key={link.name}
+                    onClick={() => handleLinkClick(link.href)}
+                    className={`block text-xl w-full text-left transition-colors duration-300 font-semibold ${
+                      isActive ? 'text-accent' : 'text-primary hover:text-accent'
+                    }`}
+                  >
+                    {link.name}
+                  </button>
+                );
+              })}
               <a
                 href="tel:+919415598626"
-                className="inline-flex items-center justify-center gap-2 w-full rounded-full px-6 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 w-full rounded-full px-8 py-5 bg-gradient-gold text-white font-bold shadow-card hover:shadow-card-hover hover:scale-105 transition-all duration-300"
               >
-                <FiPhone />
+                <FiPhone size={20} />
                 Call Now
               </a>
             </div>

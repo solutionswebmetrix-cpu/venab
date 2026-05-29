@@ -1,157 +1,158 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  FiCheck,
+  FiCheckCircle,
   FiShield,
-  FiAward,
   FiClock,
+  FiAward,
   FiUsers,
-  FiPhone,
-  FiBox,
+  FiThumbsUp,
 } from 'react-icons/fi';
 
 const WhyChooseUs = () => {
-  const reasons = [
+  const features = [
     {
       icon: FiShield,
-      title: 'Guaranteed Protection',
-      description: '100% satisfaction guarantee on all our waterproofing services.',
+      title: '10 Year Warranty',
+      description: 'Complete peace of mind with our luxury warranty coverage.',
     },
     {
-      icon: FiAward,
-      title: 'Expert Team',
-      description: 'Highly skilled professionals with years of industry experience.',
-    },
-    {
-      icon: FiClock,
-      title: '24/7 Service',
-      description: 'Round-the-clock emergency service for urgent waterproofing needs.',
+      icon: FiCheckCircle,
+      title: 'Premium Materials',
+      description: 'Only the finest materials for discerning clients.',
     },
     {
       icon: FiUsers,
-      title: '500+ Happy Clients',
-      description: 'Trusted by hundreds of satisfied customers across the region.',
+      title: 'Expert Team',
+      description: 'Highly skilled and certified waterproofing specialists.',
     },
     {
-      icon: FiPhone,
-      title: 'Free Inspection',
-      description: 'Get a free professional inspection and quote for your property.',
+      icon: FiClock,
+      title: '24/7 Emergency Service',
+      description: 'Always available when you need us the most.',
     },
     {
-      icon: FiBox,
-      title: 'Premium Materials',
-      description: 'Only the highest quality materials for long-lasting results.',
+      icon: FiAward,
+      title: '5-Star Rated',
+      description: 'Trusted by hundreds of satisfied clients.',
+    },
+    {
+      icon: FiThumbsUp,
+      title: '100% Satisfaction',
+      description: 'Guaranteed results or we fix it for free.',
     },
   ];
 
-  return (
-    <section className="py-24 bg-dark relative overflow-hidden">
-      {/* Animated Background Blobs */}
-      <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+  const benefits = [
+    'Free site inspection',
+    'Guaranteed waterproofing',
+    'Competitive pricing',
+    'Quick response',
+    'Professional staff',
+    'Latest technology',
+    'Eco-friendly',
+    'Licensed & insured',
+  ];
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: 'spring' }}
-            className="space-y-8"
+            transition={{ duration: 0.8 }}
           >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold"
-            >
+            <span className="inline-block px-6 py-3 rounded-full bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6">
               Why Choose Us
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight"
-            >
-              The Most Trusted
-              <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Waterproofing Experts
-              </span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="text-xl text-slate-300 leading-relaxed"
-            >
-              With over a decade of experience, we deliver premium waterproofing solutions that protect your property for years to come.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="grid sm:grid-cols-2 gap-4"
-            >
-              {reasons.slice(0, 2).map((reason, index) => (
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight mb-8">
+              We Deliver
+              <span className="block text-accent">Excellence</span>
+            </h2>
+            <p className="text-lg md:text-xl text-textSecondary mb-10 leading-relaxed">
+              Experience luxury waterproofing with unmatched quality, attention to detail, and a commitment to perfection.
+            </p>
+            
+            <div className="grid sm:grid-cols-2 gap-6">
+              {features.map((feature, index) => (
                 <motion.div
-                  key={reason.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  className="flex items-start gap-3"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ x: 8 }}
+                  className="p-6 rounded-2xl bg-bg border border-gray-100 hover:border-accent/30 transition-all duration-500"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                    className="mt-1 w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0"
-                  >
-                    <FiCheck className="text-green-400" size={16} />
-                  </motion.div>
-                  <div>
-                    <h4 className="text-white font-semibold">{reason.title}</h4>
-                    <p className="text-slate-400 text-sm">{reason.description}</p>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-gold flex items-center justify-center mb-4 shadow-card">
+                    <feature.icon size={26} className="text-white" />
                   </div>
+                  <h3 className="text-xl font-black text-primary mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-textSecondary leading-relaxed">
+                    {feature.description}
+                  </p>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {reasons.map((reason, index) => (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, y: 40, scale: 0.8, rotateX: 20 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.1, type: 'spring', stiffness: 100, damping: 12 }}
-                whileHover={{
-                  y: -12,
-                  scale: 1.05,
-                  rotate: index % 2 === 0 ? 2 : -2,
-                  boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)',
-                  borderColor: 'rgba(6, 182, 212, 0.3)',
-                }}
-                className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-2xl transition-all duration-500"
-              >
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6, type: 'spring' }}
-                  className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4"
-                >
-                  <reason.icon size={24} className="text-white" />
-                </motion.div>
-                <h3 className="text-lg font-bold text-white mb-2">{reason.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{reason.description}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="bg-primary rounded-3xl p-10 border border-gray-800 shadow-luxury">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-gold flex items-center justify-center mb-8 shadow-card animate-pulse-glow">
+                <FiAward size={38} className="text-white" />
+              </div>
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
+                Trusted by
+                <br />
+                <span className="text-accent">500+ Clients</span>
+              </h3>
+              
+              <div className="space-y-4 mb-10">
+                {benefits.map((benefit, index) => (
+                  <motion.div
+                    key={benefit}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <FiCheckCircle size={18} className="text-accent" />
+                    </div>
+                    <span className="text-gray-200 text-lg font-medium">
+                      {benefit}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800">
+                <div className="text-center">
+                  <div className="text-4xl font-black text-accent mb-2">10+</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider font-bold">Years</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-black text-accent mb-2">500+</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider font-bold">Projects</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-black text-accent mb-2">5.0</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider font-bold">Rating</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

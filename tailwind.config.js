@@ -7,17 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#06b6d4',
-        secondary: '#2563eb',
-        dark: '#020617',
-        'dark-800': '#0f172a',
-        'dark-700': '#1e293b',
+        primary: '#111827', // Rich Black
+        secondary: '#1F2937', // Dark Charcoal
+        accent: '#F59E0B', // Luxury Gold
+        goldLight: '#FBBF24', // Light Gold
+        bg: '#FAFAF9', // Background
+        textMain: '#111827', // Text
+        textSecondary: '#6B7280', // Secondary Text
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-gold': 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
+      },
+      boxShadow: {
+        'card': '0 4px 24px -4px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 12px 48px -8px rgba(245, 158, 11, 0.15)',
+        'luxury': '0 20px 60px -20px rgba(0, 0, 0, 0.15)',
       },
     },
   },
   plugins: [],
-}
+};

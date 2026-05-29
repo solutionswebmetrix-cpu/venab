@@ -2,58 +2,63 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { FiStar } from 'react-icons/fi';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 const Testimonials = () => {
   const testimonials = [
     {
-      name: 'Rakesh Sharma',
-      location: 'Varanasi',
+      name: 'Rajesh Kumar',
+      location: 'Mumbai',
+      text: 'Excellent service! They fixed our roof leakage problem completely. Very professional team.',
       rating: 5,
-      text: 'Excellent service! They fixed our roof leakage problem completely. Very professional team and reasonable prices.',
     },
     {
-      name: 'Priya Patel',
-      location: 'Churamanpur',
+      name: 'Priya Sharma',
+      location: 'Delhi',
+      text: 'Outstanding waterproofing work. Our basement is finally dry. Highly recommended!',
       rating: 5,
-      text: 'Best waterproofing service in the area. Our bathroom is now completely dry. Highly recommend Venab Water Proofing!',
     },
     {
       name: 'Amit Singh',
-      location: 'Lohta Bazar',
+      location: 'Bangalore',
+      text: 'Professional and on-time service. The quality of work exceeded our expectations.',
       rating: 5,
-      text: '24/7 emergency service saved us during heavy rains. Quick response and quality work. 5 stars!',
     },
     {
-      name: 'Sunita Verma',
-      location: 'Bhulanpur',
+      name: 'Neha Patel',
+      location: 'Pune',
+      text: 'Best waterproofing service we have ever used. Great attention to detail.',
       rating: 5,
-      text: 'They did an amazing job with our basement waterproofing. The team was courteous and professional throughout.',
+    },
+    {
+      name: 'Vikram Joshi',
+      location: 'Hyderabad',
+      text: 'Very reliable and trustworthy. They provided a complete solution at a fair price.',
+      rating: 5,
     },
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-dark">
+    <section id="testimonials" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4 mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+          <span className="inline-block px-6 py-3 rounded-full bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary leading-tight mb-4">
             What Our Clients
-            <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Say About Us
-            </span>
+            <span className="block text-accent">Say About Us</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Don't just take our word for it - hear from our satisfied customers.
+          <p className="text-lg md:text-xl text-textSecondary max-w-2xl mx-auto leading-relaxed">
+            Don't just take our word for it - hear from our satisfied clients.
           </p>
         </motion.div>
 
@@ -62,17 +67,19 @@ const Testimonials = () => {
           spaceBetween={30}
           slidesPerView={1}
           autoplay={{
-            delay: 5000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           pagination={{
             clickable: true,
+            el: '.custom-swiper-pagination',
           }}
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
+          className="pb-12"
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
@@ -80,28 +87,38 @@ const Testimonials = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 shadow-2xl hover:scale-[1.02] transition-all duration-500 h-full"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="rounded-2xl bg-bg border border-gray-100 p-8 shadow-card hover:shadow-card-hover transition-all duration-500 h-full"
               >
-                <div className="flex items-center gap-1 mb-4">
+                <div className="flex items-center gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-xl">⭐</span>
+                    <FiStar key={i} className="text-accent fill-accent text-xl" />
                   ))}
                 </div>
-                <p className="text-slate-300 leading-relaxed mb-6">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">{testimonial.name.charAt(0)}</span>
+                <p className="text-lg text-primary leading-relaxed mb-8">
+                  "{testimonial.text}"
+                </p>
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center shadow-card">
+                    <span className="text-white font-black text-xl">
+                      {testimonial.name.charAt(0)}
+                    </span>
                   </div>
                   <div>
-                    <h4 className="text-white font-bold">{testimonial.name}</h4>
-                    <p className="text-slate-400 text-sm">{testimonial.location}</p>
+                    <h4 className="text-primary font-black text-lg">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-textSecondary text-sm">
+                      {testimonial.location}
+                    </p>
                   </div>
                 </div>
               </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
+        
+        <div className="custom-swiper-pagination flex justify-center mt-4" />
       </div>
     </section>
   );

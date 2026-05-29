@@ -1,63 +1,66 @@
 import React from 'react';
-import { FiFacebook, FiInstagram, FiTwitter, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import {
+  FiFacebook,
+  FiInstagram,
+  FiTwitter,
+  FiMapPin,
+  FiPhone,
+  FiMail,
+} from 'react-icons/fi';
 
 const Footer = () => {
-  const services = [
-    'Roof Waterproofing',
-    'Wall Leakage Repair',
-    'Bathroom Waterproofing',
-    'Terrace Treatment',
-    'Basement Waterproofing',
-    'Crack Filling',
-    'Chemical Coating',
-    'Industrial Waterproofing',
-  ];
-
   const quickLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ];
 
+  const services = [
+    'Roof Waterproofing',
+    'Basement Waterproofing',
+    'Terrace Waterproofing',
+    'Bathroom Waterproofing',
+    'Crack Filling',
+  ];
+
   return (
-    <footer className="bg-dark border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-primary">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">V</span>
+            <div className="flex items-center gap-3 mb-7">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-gold flex items-center justify-center shadow-card">
+                <span className="text-white font-black text-2xl">V</span>
               </div>
-              <span className="text-2xl font-black text-white tracking-tight">
-                Venab<span className="text-primary">Water</span>
+              <span className="text-3xl font-black text-white tracking-tight">
+                Venab<span className="text-accent">Waterproofing</span>
               </span>
             </div>
-            <p className="text-slate-400 leading-relaxed mb-6">
+            <p className="text-gray-400 text-lg leading-relaxed mb-8">
               Professional waterproofing solutions with guaranteed protection. Serving residential, commercial, and industrial properties.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {[FiFacebook, FiInstagram, FiTwitter].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-primary hover:border-primary hover:text-white transition-all duration-300"
+                  className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white hover:bg-gradient-gold transition-all duration-300 hover:scale-110"
                 >
-                  <Icon size={20} />
+                  <Icon size={24} />
                 </a>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-xl font-black text-white mb-8">Quick Links</h3>
+            <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-slate-400 hover:text-primary transition-colors duration-300"
+                    className="text-lg text-gray-400 hover:text-accent transition-colors duration-300 font-semibold"
                   >
                     {link.name}
                   </a>
@@ -67,13 +70,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Our Services</h3>
-            <ul className="space-y-3">
-              {services.slice(0, 5).map((service) => (
+            <h3 className="text-xl font-black text-white mb-8">Our Services</h3>
+            <ul className="space-y-4">
+              {services.map((service) => (
                 <li key={service}>
                   <a
                     href="#services"
-                    className="text-slate-400 hover:text-primary transition-colors duration-300"
+                    className="text-lg text-gray-400 hover:text-accent transition-colors duration-300 font-semibold"
                   >
                     {service}
                   </a>
@@ -83,23 +86,23 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Contact Info</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <FiMapPin className="text-primary mt-1 flex-shrink-0" />
-                <span className="text-slate-400">
+            <h3 className="text-xl font-black text-white mb-8">Contact Info</h3>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4">
+                <FiMapPin className="text-accent mt-1 flex-shrink-0" size={24} />
+                <span className="text-gray-400 text-lg leading-relaxed">
                   Bhulanpur PAC, Lohta Bazar, Churamanpur, Uttar Pradesh
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <FiPhone className="text-primary flex-shrink-0" />
-                <a href="tel:+919415598626" className="text-slate-400 hover:text-primary transition-colors">
+              <li className="flex items-center gap-4">
+                <FiPhone className="text-accent flex-shrink-0" size={24} />
+                <a href="tel:+919415598626" className="text-gray-400 text-lg hover:text-accent transition-colors font-semibold">
                   +91 94155 98626
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <FiMail className="text-primary flex-shrink-0" />
-                <a href="mailto:info@venabwaterproofing.com" className="text-slate-400 hover:text-primary transition-colors">
+              <li className="flex items-center gap-4">
+                <FiMail className="text-accent flex-shrink-0" size={24} />
+                <a href="mailto:info@venabwaterproofing.com" className="text-gray-400 text-lg hover:text-accent transition-colors font-semibold">
                   info@venabwaterproofing.com
                 </a>
               </li>
@@ -107,11 +110,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-sm">
-            © 2024 Venab Water Proofing. All rights reserved.
+        <div className="border-t border-gray-800 mt-16 pt-10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-400 text-base font-semibold">
+            © 2024 Venab Waterproofing. All rights reserved.
           </p>
-          <p className="text-slate-400 text-sm">
+          <p className="text-gray-400 text-base font-semibold">
             Open 24 Hours • 5.0 ⭐ Google Rating
           </p>
         </div>
