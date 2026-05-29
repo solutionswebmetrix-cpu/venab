@@ -13,12 +13,15 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24">
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop"
-          alt="Professional waterproofing"
+        <video
+          src="/Banner.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/85 to-primary/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/60 via-secondary/50 to-primary/60"></div>
         <div className="absolute top-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-goldLight/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
